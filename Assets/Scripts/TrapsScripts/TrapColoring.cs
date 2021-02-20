@@ -3,7 +3,7 @@
 public class TrapColoring : MonoBehaviour
 {
     [SerializeField] private Material[] _colors;
-    [SerializeField]private HealthOfTrap _healthVal;
+    [SerializeField] private HealthOfTrap _healthVal;
 
     private MeshRenderer ColoringObject;
     private void Start()

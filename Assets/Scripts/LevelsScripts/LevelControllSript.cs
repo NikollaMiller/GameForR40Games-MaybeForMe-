@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelControllSript : MonoBehaviour
 {
+    public static bool _isFinished;
     public static int _level;
 
     private void Start()
@@ -19,10 +19,12 @@ public class LevelControllSript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _level += 1;
-            int scene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            _isFinished = true;
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        _isFinished = false;
+    }
 }

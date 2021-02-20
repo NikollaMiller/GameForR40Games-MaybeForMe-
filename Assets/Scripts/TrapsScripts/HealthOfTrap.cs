@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class HealthOfTrap : MonoBehaviour
 {
     public float _healthOfTrap;
 
-    [SerializeField] private TextMesh _ValueShow;
+    [SerializeField] private TextMeshPro _ValueShow;
 
     private bool triggered;
 

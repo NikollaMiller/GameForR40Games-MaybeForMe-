@@ -28,6 +28,10 @@ public class TriggerOfTrap : MonoBehaviour
             triggered = true;
             _scale.Speed = 1;
         }
+        else
+        {
+            _scale.Speed = 3;
+        }
     }
 
     private void OnTriggerExit(Collider other)

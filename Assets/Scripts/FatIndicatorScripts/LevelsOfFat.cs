@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class LevelsOfFat : MonoBehaviour
 {
     [SerializeField] private FatIndicatorValue _fatvalue;
-    [SerializeField] private TextMesh _showLevelOfFat;
+    [SerializeField] private TextMeshPro _showLevelOfFat;
 
     private void Update()
     {
