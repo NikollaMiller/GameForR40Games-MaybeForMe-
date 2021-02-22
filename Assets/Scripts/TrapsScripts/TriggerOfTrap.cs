@@ -4,6 +4,7 @@ public class TriggerOfTrap : MonoBehaviour
 {
     private FatIndicatorValue _fat;
     private CharacterMoving _scale;
+    [SerializeField] private HealthOfTrap _selfHEalth;
 
     private bool triggered;
     private void Start()
@@ -14,29 +15,35 @@ public class TriggerOfTrap : MonoBehaviour
 
     private void Update()
     {
+        if (_selfHEalth._healthOfTrap <= 0 && triggered)
+        {
+            Destroy(this);
+            triggered = false;
+        }
+
         if (triggered)
         {
-            _fat._fatValue -= 0.01f;
-            _scale._character.transform.localScale = new Vector3(_scale._character.transform.localScale.x - 0.01f, _scale._character.transform.localScale.y - 0.01f, _scale._character.transform.localScale.z - 0.01f);
+            _fat._fatValue -= 0.025f;
+            CharacterMoving.Speed = CharacterUpgrade.pushStrength;
+            _scale._character.transform.localScale = new Vector3(_scale._character.transform.localScale.x - 0.025f, _scale._character.transform.localScale.y - 0.025f, _scale._character.transform.localScale.z - 0.025f);
         }
+        else
+        {
+            CharacterMoving.Speed = 3;
+        }
+        print(triggered);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             triggered = true;
-            _scale.Speed = 1;
-        }
-        else
-        {
-            _scale.Speed = 3;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         triggered = false;
-        _scale.Speed = 3;
     }
 }

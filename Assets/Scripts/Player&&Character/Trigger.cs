@@ -2,9 +2,15 @@
 
 public class Trigger : MonoBehaviour
 {
+    [SerializeField] private AudioSource _poshSound;
+    [SerializeField] private GameObject FinishPanel;
+
     private FatIndicatorValue _fat;
 
-    private bool _triggered;
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
 
     private void Start()
     {
@@ -34,17 +40,29 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.gameObject.tag)
+        if (other.CompareTag("Food"))
         {
-            case "Food":
                 _fat._fatValue += 0.1f;
                 transform.localScale = new Vector3(transform.localScale.x + 0.05f, transform.localScale.y + 0.05f, transform.localScale.z + 0.05f);
                 Destroy(other.gameObject);
-                break;
-            case "Cash":
+        }
+
+        if (other.gameObject.tag == "Cash")
+        {
                 CashSystem._cash += 1;
                 Destroy(other.gameObject);
-                break;
         }
+
+         if (other.tag == "Finished")
+        {
+                FinishPanel.SetActive(true);
+                Time.timeScale = 0;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        FinishPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }

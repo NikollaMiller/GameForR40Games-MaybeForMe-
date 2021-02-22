@@ -31,9 +31,10 @@ public class HealthOfTrap : MonoBehaviour
 
     private void Update()
     {
+
         if (triggered)
         {
-            _healthOfTrap -= 0.5f;
+            _healthOfTrap -= 0.4f;
         }
         _ValueShow.text = $"{System.Convert.ToInt32(_healthOfTrap)}";
     }

@@ -13,7 +13,7 @@ public class CashSystem : MonoBehaviour
 
     private void Update()
     {
-        _cashValueDisplay.text = $"{_cash}";
+        _cashValueDisplay.text = $"balance:{_cash}";
         PlayerPrefs.SetInt("Cadsh", _cash);
     }
 }

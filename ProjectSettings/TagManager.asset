@@ -12,9 +12,9 @@ TagManager:
   - RotateToLeft
   - NotToGoRight
   - NotToGoLeft
-  - Routate
-  - RotateToLeftButOther
   - Cash
+  - Won
+  - Finished
   layers:
   - Default
   - TransparentFX

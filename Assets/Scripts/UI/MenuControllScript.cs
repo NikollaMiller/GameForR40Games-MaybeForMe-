@@ -5,10 +5,12 @@ public class MenuControllScript : MonoBehaviour
 {
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject GamePanel;
+    [SerializeField] private SwipeMove _swipeControll;
     [SerializeField] private CharacterMoving _move;
     private void Awake()
     {
         _move.enabled = false;
+        _swipeControll.enabled = false;
         MenuPanel.SetActive(true);
         GamePanel.SetActive(false);
     }
@@ -17,6 +19,7 @@ public class MenuControllScript : MonoBehaviour
     {
         
         _move.enabled = true;
+        _swipeControll.enabled = true;
         MenuPanel.SetActive(false);
         GamePanel.SetActive(true);
     }

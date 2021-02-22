@@ -2,7 +2,7 @@
 
 public class CharacterMoving : MonoBehaviour
 {
-    public float Speed;
+    public static float Speed;
     public Rigidbody _character;
 
     private void Start()
